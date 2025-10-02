@@ -2,7 +2,7 @@
 if not exist .venv (
     echo Creating a virtual environment and installing dependencies...
     python -m venv .venv
-    call .venv\Scripts\activate
+    call .venv\Scripts\activate.bat
     pip install -r requirements.txt
     echo.
     echo Successfully created a virtual environment and installed dependencies.
