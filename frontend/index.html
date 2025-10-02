@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome Audio Real-time Transcription</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎙️ Chrome Audio Real-time Transcription</h1>
+
+        <div class="info">
+            <strong>How to use:</strong><br>
+            1. Click "Start Screen Share" button and select Chrome tab<br>
+            2. Enable "Share audio" option<br>
+            3. Audio will be automatically transcribed (segmented by 0.5s silence)
+        </div>
+
+        <div class="controls">
+            <button id="startBtn" class="start-btn">🎬 Start Screen Share</button>
+            <button id="stopBtn" class="stop-btn" disabled>⏹️ Stop</button>
+            <button id="clearBtn" class="clear-btn">🗑️ Clear</button>
+            <button id="summaryBtn" class="summary-btn">🤖 AI Summary</button>
+        </div>
+
+        <div class="prompt-container">
+            <label for="promptInput" style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">
+                Summary Prompt (Customizable):
+            </label>
+            <textarea id="promptInput" class="prompt-input"
+                placeholder="Example: Summarize this content into 3 important points. Explain technical terms clearly.">以下は授業の文字起こしです。内容を要約してください。ルールとテンプレートに従ってください。
+
+ルール:
+- 内容をでっち上げないこと。ただし誤字と思われるものや不自然な文は修正可。その場合は末尾に"(編集済)"と記すこと。
+- Markdown形式(箇条書きは"-")で出力すること。
+
+テンプレート:
+# <タイトル名>
+
+## 授業の目標
+
+## 授業内容
+
+# まとめ
+
+要約内容:
+</textarea>
+        </div>
+
+        <div id="status" class="status disconnected">
+            Not connected to WebSocket server
+        </div>
+
+        <div id="queueStatus" class="queue-status" style="display: none;">
+            <span id="queueCount">0</span> transcription tasks waiting...
+        </div>
+
+        <div class="audio-level">
+            <div id="audioLevelBar" class="audio-level-bar"></div>
+        </div>
+
+        <div id="summaryArea" class="summary-area">
+            <div class="summary-title">🤖 AI Summary Result</div>
+            <div id="summaryContent" class="summary-content"></div>
+            <div id="notionResult" class="notion-result" style="display: none;">
+                <div class="notion-title">📄 Saved to Notion</div>
+                <div id="notionContent" class="notion-content"></div>
+            </div>
+        </div>
+
+        <div id="transcriptionArea" class="transcription-area">
+            Transcription results will appear here...
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

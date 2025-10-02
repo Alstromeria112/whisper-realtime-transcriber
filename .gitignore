@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+
+# Frontend build
+node_modules/
+
+# Others
+*.bak
+*.swp
+
+# Ignore audio and temp files
+*.wav
+*.mp3
+*.tmp
+
+# Ignore notebooks
+*.ipynb_checkpoints/
