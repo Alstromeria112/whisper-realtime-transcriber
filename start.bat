@@ -1,4 +1,7 @@
 @echo off
+
+chcp 65001 >nul
+
 if not exist .venv (
     echo Creating a virtual environment and installing dependencies...
     python -m venv .venv
